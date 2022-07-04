@@ -15,13 +15,18 @@ enum Token: Equatable, CustomDebugStringConvertible {
     
     case number(Double)
     case binaryOperation(BinaryOperation)
-
+    case bracket(Brackets)
+    
+    // MARK: - CustomDebugStringConvertible
+    
     var debugDescription: String {
         switch self {
         case .number(let double):
             return String(double)
         case .binaryOperation(let binaryOperation):
             return binaryOperation.rawValue
+        case .bracket(let bracket):
+            return bracket.rawValue
         }
     }
 }
@@ -50,4 +55,11 @@ enum BinaryOperation: String, CaseIterable, Equatable {
             return 3
         }
     }
+}
+
+// MARK: - Brackets
+
+enum Brackets: String, Equatable {
+    case openingBracket = "("
+    case closingBracket = ")"
 }
