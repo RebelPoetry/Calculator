@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Token
 
-enum Token: Equatable, CustomDebugStringConvertible {
+enum MathExpressionToken: Equatable, CustomDebugStringConvertible {
 
     // MARK: - Cases
     
