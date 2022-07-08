@@ -10,18 +10,21 @@ import Foundation
 // MARK: - ExpressionParser
 
 protocol ExpressionParser {
-
-    /// Parse the given expression and returns tokens sequence
-    /// - Parameter expression: target expression
-    /// - Returns: result tokens sequence
-    func parse(_ expression: String) -> [Token]
+    
+    /// The type of  returned sequence
+    associatedtype TypeOfSequence
+    
+    /// Parse the given String expression and returns  sequence
+    /// - Parameter expression: target String  expression
+    /// - Returns: result  sequence
+    func parse(_ expression: String) -> [TypeOfSequence]
 }
 
-// MARK: - Parse
+// MARK: - MathExpressionParser
 
+/// Parse the given math expression and returns tokens sequence
 class MathExpressionParser: ExpressionParser {
-    
-    /// The function that parse an math expression to a tokens seequence
+
     func parse(_ expression: String) -> [Token] {
         
        var str = expression
