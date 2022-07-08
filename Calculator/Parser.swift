@@ -12,12 +12,12 @@ import Foundation
 protocol ExpressionParser {
     
     /// The type of  returned sequence
-    associatedtype TypeOfSequence
+    associatedtype Token
     
     /// Parse the given String expression and returns  sequence
     /// - Parameter expression: target String  expression
     /// - Returns: result  sequence
-    func parse(_ expression: String) -> [TypeOfSequence]
+    func parse(_ expression: String) -> [Token]
 }
 
 // MARK: - MathExpressionParser
@@ -25,10 +25,10 @@ protocol ExpressionParser {
 /// Parse the given math expression and returns tokens sequence
 class MathExpressionParser: ExpressionParser {
 
-    func parse(_ expression: String) -> [Token] {
+    func parse(_ expression: String) -> [MathExpressionToken] {
         
        var str = expression
-       var result: [Token] = []
+       var result: [MathExpressionToken] = []
        var number = ""
         
        while !str.isEmpty {
