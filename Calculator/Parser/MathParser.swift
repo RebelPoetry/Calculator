@@ -7,23 +7,10 @@
 
 import Foundation
 
-// MARK: - ExpressionParser
-
-protocol ExpressionParser {
-    
-    /// The type of  returned sequence
-    associatedtype Token
-    
-    /// Parse the given String expression and returns  sequence
-    /// - Parameter expression: target String  expression
-    /// - Returns: result  sequence
-    func parse(_ expression: String) -> [Token]
-}
-
 // MARK: - MathExpressionParser
 
 /// Parse the given math expression and returns tokens sequence
-class MathExpressionParser: ExpressionParser {
+final class MathExpressionParser: ExpressionParser {
 
     func parse(_ expression: String) -> [MathExpressionToken] {
         
