@@ -17,5 +17,5 @@ protocol ExpressionParser {
     /// Parse the given String expression and returns sequence
     /// - Parameter expression: target String expression
     /// - Returns: result  sequence
-    func parse(_ expression: String) -> [Token]
+    func parse(_ expression: String) throws -> [Token]
 }
