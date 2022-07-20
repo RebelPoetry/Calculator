@@ -22,9 +22,7 @@ extension MathExpressionParser: ExpressionParser {
         var number = ""
         
         while !str.isEmpty {
-            
             let a = String(str.removeFirst())
-            
             if Int(a) != nil || a == "." {
                 number += a
             } else {

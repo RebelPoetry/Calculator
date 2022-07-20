@@ -21,8 +21,9 @@ extension RPNConverter: Converter {
     func convert(_ expression: [MathExpressionToken]) -> [MathExpressionToken] {
         
         var result: [Token] = []
+
         var stack = Stack<Token>()
-        
+
         for element in expression {
             switch element {
             case .number:
