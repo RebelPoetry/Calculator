@@ -1,5 +1,5 @@
 //
-//  RPNConverterProtocol.swift
+//  Converter.swift
 //  Calculator
 //
 //  Created by Kazakh on 08.07.2022.

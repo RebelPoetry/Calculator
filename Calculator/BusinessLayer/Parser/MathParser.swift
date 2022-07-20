@@ -9,9 +9,12 @@ import Foundation
 
 // MARK: - MathExpressionParser
 
-final class MathExpressionParser: ExpressionParser {
+final class MathExpressionParser {
     
+}
     /// Parse the given math expression and returns tokens sequence
+extension MathExpressionParser: ExpressionParser {
+    
     func parse(_ expression: String) throws -> [MathExpressionToken] {
         
         var str = expression.filter { $0 != " " }
@@ -35,13 +38,12 @@ final class MathExpressionParser: ExpressionParser {
                     result.append(.number(number))
                 }
                 number = ""
-                guard BinaryOperation.init(rawValue: a) != nil || Brackets.init(rawValue: a) != nil else {
-                    throw MathParserError.unknownCharacter(a)
-                }
                 if let operation = BinaryOperation(rawValue: a) {
                     result.append(.binaryOperation(operation))
                 } else if let brackett = Brackets(rawValue: a) {
                     result.append(.bracket(brackett))
+                } else {
+                    throw MathParserError.unknownCharacter(a)
                 }
             }
         }
