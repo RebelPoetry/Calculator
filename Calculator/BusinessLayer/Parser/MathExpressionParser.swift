@@ -12,9 +12,12 @@ import Foundation
 final class MathExpressionParser {
     
 }
-    /// Parse the given math expression and returns tokens sequence
+
+// MARK: - ExpressionParser
+
 extension MathExpressionParser: ExpressionParser {
     
+    /// Parse the given math expression and returns tokens sequence
     func parse(_ expression: String) throws -> [MathExpressionToken] {
         
         var str = expression.filter { $0 != " " }
