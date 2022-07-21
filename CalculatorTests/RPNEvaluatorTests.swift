@@ -7,7 +7,9 @@
 @testable import Calculator
 import XCTest
 
-class RPNEvaluatorTests: XCTestCase {
+// MARK: - RPNEvaluatorTests
+
+final class RPNEvaluatorTests: XCTestCase {
     
     private let converter = RPNConverter()
     private let evaluator = RPNEvaluator()
@@ -18,17 +20,17 @@ class RPNEvaluatorTests: XCTestCase {
         /// given
         let testDictionary: [String: Double] = [
             "10 + 205 × 3000 / 5" : 123010,
-            "2 ^ 7 / 4" : 32,
+            "( 2 ^ 7 ) / 4" : 32,
             "85 - 100 + 0" : -15,
             "3 ^ 3 ^ 2" : 729,
-            "90 / 90 + 80" : 81,
+            "90 / (90 + 80) " : 0.529,
             "50.34 - 0.34" : 50,
             "1 - 2.3" : -1.3
         ]
         
         for (expression, expected) in testDictionary {
             let parsedExpression = try parser.parse(expression)
-            let convertedExpression  = converter.convert(parsedExpression)
+            let convertedExpression = converter.convert(parsedExpression)
             let evaluatedExpression = evaluator.evaluate(convertedExpression)
             
             XCTAssertEqual(evaluatedExpression, expected)

@@ -17,6 +17,6 @@ protocol Converter {
     /// Convert the given sequence and returns it
     /// - Parameter expression: target  sequence
     /// - Returns: result  sequence
-    /// - Example: parsed string to RPN string
+    /// - Example: Convert the given math expression to RPN expression
     func convert(_ expression: [Token]) -> [Token]
 }

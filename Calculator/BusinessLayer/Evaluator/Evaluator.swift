@@ -11,12 +11,8 @@ import Foundation
 
 protocol Evaluator  {
     
-    /// The type of given and returned sequence
+    /// Token type for any input sequence
     associatedtype Token
     
-    /// Evaluate the given expression and returns Double value
-    /// - Parameter expression: Token  array
-    /// - Returns: Double
-    /// - Example: Evaluate RPN expression
     func evaluate(_ expression: [Token]) -> Double
 }
