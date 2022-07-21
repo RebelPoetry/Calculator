@@ -15,7 +15,7 @@ final class RPNEvaluatorTests: XCTestCase {
     private let evaluator = RPNEvaluator()
     private let parser = MathExpressionParser()
     
-    func testSomething() throws {
+    func testEvaluator() throws {
         
         /// given
         let testDictionary: [String: Double] = [
@@ -34,8 +34,7 @@ final class RPNEvaluatorTests: XCTestCase {
             let evaluatedExpression = evaluator.evaluate(convertedExpression)
             
             XCTAssertEqual(evaluatedExpression, expected)
-            }
         }
-
     }
+}
 
